@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+import plotly.express as px
+import plotly.graph_objects as go
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
@@ -89,32 +89,42 @@ if st.button("🚀 Train Model"):
         importance_df = pd.DataFrame({'feature': all_features, 'importance': importances})
         importance_df = importance_df.sort_values(by='importance', ascending=False).head(10)
 
-        fig1, ax1 = plt.subplots()
-        sns.barplot(x='importance', y='feature', data=importance_df, ax=ax1)
-        ax1.set_title("Top 10 Feature Importances")
-        st.pyplot(fig1)
+        fig1 = px.bar(
+            importance_df[::-1],  # reverse for horizontal
+            x='importance', y='feature',
+            orientation='h',
+            title="Top 10 Feature Importances",
+            height=400
+        )
+        st.plotly_chart(fig1, use_container_width=True)
 
     with col2:
         # Actual vs Predicted
-        fig2, ax2 = plt.subplots()
-        sns.scatterplot(x=st.session_state.y_test, y=st.session_state.y_pred, ax=ax2)
-        ax2.set_xlabel("Actual Price")
-        ax2.set_ylabel("Predicted Price")
-        ax2.set_title("Actual vs Predicted Prices")
-        st.pyplot(fig2)
+        fig2 = px.scatter(
+            x=st.session_state.y_test,
+            y=st.session_state.y_pred,
+            labels={'x': 'Actual Price', 'y': 'Predicted Price'},
+            title="Actual vs Predicted Prices",
+            height=400
+        )
+        fig2.update_traces(marker=dict(size=5))
+        st.plotly_chart(fig2, use_container_width=True)
 
     # Residuals Plot
     residuals = st.session_state.y_test - st.session_state.y_pred
-    fig3, ax3 = plt.subplots()
-    sns.histplot(residuals, kde=True, ax=ax3, bins=30)
-    ax3.set_title("Residuals Distribution")
-    st.pyplot(fig3)
+    fig3 = px.histogram(
+        residuals, nbins=30, marginal="rug", 
+        title="Residuals Distribution",
+        height=400
+    )
+    st.plotly_chart(fig3, use_container_width=True)
 
     # Target Distribution
-    fig4, ax4 = plt.subplots()
-    sns.histplot(y, kde=True, ax=ax4, color='skyblue')
-    ax4.set_title("Selling Price Distribution")
-    st.pyplot(fig4)
+    fig4 = px.histogram(
+        y, nbins=40, title="Selling Price Distribution",
+        height=400, color_discrete_sequence=['skyblue']
+    )
+    st.plotly_chart(fig4, use_container_width=True)
 
 # -------------------- Prediction Section --------------------
 st.divider()
