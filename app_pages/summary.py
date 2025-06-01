@@ -36,7 +36,20 @@ def generate_column_summary(df):
 
 def app():
     st.header("📜 Summary Scroll")
-    st.markdown('''### ''')
+    st.markdown('''
+    <div style="text-align: center; padding: 1rem 2rem; border-radius: 10px;">
+        <h3>🔮 Project Overview</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            This Streamlit project is a <strong>fantasy-themed car price analysis and prediction app</strong>.<br>
+            It allows users to explore and understand a used car dataset through <strong>interactive summaries</strong>, 
+            <strong>visual correlations</strong>, and <strong>descriptive statistics</strong>.<br>
+            The app includes <strong>dynamic feature explanations</strong> for beginners, and an interactive 
+            <strong>Plotly-based correlation heatmap</strong> to explore feature relationships.<br>
+            Users can select which numerical columns to analyze, making it adaptable and user-friendly.<br>
+            The goal is to build an <strong>engaging, data-driven interface</strong> for car price prediction and exploration.
+        </p>
+    </div>
+    ''', unsafe_allow_html=True)
     df = load_data()
     
     st.success(f'✅ Dataset Loaded: {df.shape[0]} rows, {df.shape[1]} columns')
