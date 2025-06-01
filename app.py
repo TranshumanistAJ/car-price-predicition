@@ -27,3 +27,24 @@ df = df.dropna().reset_index(drop=True)
 st.info(f'📏 Data shape after cleaning: {df.shape}')
 cleaned_head = df.head()
 st.dataframe(cleaned_head.style.background_gradient(cmap='YlOrBr'), use_container_width=True)
+
+
+# Define features and target
+X = df.drop(columns=['selling_price'])
+y = df['selling_price']
+
+# Show Features and Target column names
+st.markdown('## 🧾 Features and Target')
+
+st.write('### Features (X)')
+st.write(X.columns.tolist())
+st.write('### Target (y)')
+st.write(f'{y.name} is column name')
+
+st.divider()
+
+# select numerical and categorical data
+# List of categorical and numerical columns
+categorical_cols = X.select_dtypes(include=['object']).columns.tolist()
+numerical_cols = X.select_dtypes(exclude=['object']).columns.tolist()
+
