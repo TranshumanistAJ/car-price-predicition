@@ -36,12 +36,12 @@ def generate_column_summary(df):
 
 def app():
     st.header("📜 Summary Scroll")
+    st.markdown('''### ''')
     df = load_data()
     
     st.success(f'✅ Dataset Loaded: {df.shape[0]} rows, {df.shape[1]} columns')
 
-    with st.expander("🔍 Peek into the Data Scroll"):
-        st.dataframe(df.head().style.background_gradient(cmap='BuGn'), use_container_width=True)
+    st.dataframe(df.head().style.background_gradient(cmap='BuGn'), use_container_width=True)
 
     st.markdown("### 🧾 Data Types")
     st.dataframe(df.dtypes.astype(str), use_container_width=True)
