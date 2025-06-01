@@ -35,7 +35,6 @@ def generate_column_summary(df):
     return pd.DataFrame(rows)
 
 def app():
-    st.header("📜 Summary Scroll")
     st.markdown('''
     <div style="text-align: center; padding: 1rem 2rem; border-radius: 10px;">
         <h3>🔮 Project Overview</h3>
