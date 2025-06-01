@@ -48,3 +48,18 @@ st.divider()
 categorical_cols = X.select_dtypes(include=['object']).columns.tolist()
 numerical_cols = X.select_dtypes(exclude=['object']).columns.tolist()
 
+
+# preprocess to adjust the data according to ML model
+preprocessor = ColumnTransformer([
+    ('cat', OneHotEncoder(handle_unknown='ignore'), categorical_cols)
+], remainder='passthrough')  # Pass through numerical columns
+
+# make structure of model
+model = Pipeline([
+    ('preprocess', preprocessor),
+    ('regressor', RandomForestRegressor())
+])
+
+# Train/test split 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
