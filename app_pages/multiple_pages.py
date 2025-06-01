@@ -1,62 +1,58 @@
 import streamlit as st
 
-
 class MultiPage:
     """
-    A class to create a multi-page Streamlit app.
-    This class allows you to define multiple pages within the app
-    and switch between them using a sidebar navigation menu.
+    📜✨ The Tome of Many Roads ✨📜
+
+    Behold the enchanted scroll that binds all realms of your mystical Car Prediction App!
+    With this arcane class, one can summon multiple enchanted pages—each a portal to a unique vision—
+    and traverse them through the mystical Sidebar of Navigation.
+
+    Whether it's fortune-telling fuel efficiency or divining resale value, this tome keeps your journeys well-charted.
     """
+
     def __init__(self, app_name):
         """
-        Initializes the MultiPage app with the given name.
+        🔮 Ritual of Awakening 🔮
 
+        Casts the first spell to breathe life into your magical interface.
+        
         Parameters:
-        app_name (str): The name of the app to be displayed in the page title.
+        app_name (str): The grand title of your app, to be etched atop the user’s viewing crystal.
         """
-        # Initialize the pages list to store the different pages in the app
-        self.pages = []
-        # Set the app's name, which will appear in the page title
-        self.app_name = app_name
+        self.pages = []  # The sacred ledger of realms
+        self.app_name = app_name  # The name echoed across all dimensions
 
-        # Set the page configuration including the title and icon
         st.set_page_config(
-            page_title=self.app_name,  # Set the title of the page
-            page_icon="💰"  # Set the page icon (💰)
+            page_title=self.app_name,  # Proclaims the app's title on the magic scroll (browser tab)
+            page_icon="🧿"  # Wards off bugs with a mystical ward
         )
 
     def add_page(self, title, func):
         """
-        Adds a new page to the app.
+        🗺️ Carve a New Path 🗺️
+
+        Adds a new page to your enchanted compendium of predictions.
 
         Parameters:
-        title (str): The title of the page as it will appear in the sidebar
-        menu.
-        func (function): The function that will render the content of the page.
+        title (str): The name of the page, as it shall appear in the mystical sidebar.
+        func (function): The function—a spell—that breathes life into this page’s content.
         """
-        # Append a dictionary containing the page title and corresponding
-        # function to the pages list
-        self.pages.append({"title": title, "function": func})
+        self.pages.append({"title": title, "function": func})  # Inscribe a new route in the tome
 
     def run(self):
         """
-        Runs the app by displaying the main title and setting up a sidebar menu
-        for navigation.
-        The selected page will be rendered based on the sidebar choice.
-        """
-        # Display the main title of the app at the top of the page
-        st.title(self.app_name)
+        🧭 Begin the Journey 🧭
 
-        # Create a sidebar radio button for page navigation, where users can
-        # select pages
-        # The `format_func` lambda is used to display only the page title in
-        # the sidebar
+        Summons the chosen realm from the sidebar and conjures its contents.
+        The user selects their path, and the app unveils its secrets accordingly.
+        """
+        st.title(self.app_name)  # Raise the banner of the realm
+
         page = st.sidebar.radio(
-            "Menu",  # Label for the sidebar menu
-            self.pages,  # List of pages to display
-            # Function to extract and display only the page title
-            format_func=lambda page: page["title"]
+            "Choose Your Path",  # Whispered instructions to the traveler
+            self.pages,
+            format_func=lambda page: page["title"]  # Show only the realm's name
         )
 
-        # Call the function corresponding to the selected page
-        page["function"]()
+        page["function"]()  # Invoke the magic of the selected path
