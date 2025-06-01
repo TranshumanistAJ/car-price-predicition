@@ -11,11 +11,13 @@ df = pd.read_csv(DATA_PATH)
 st.success(f'✅ Loaded dataset with shape: {df.shape}')
 
 # Display with gradient background on numeric columns
-st.dataframe(df.style.background_gradient(cmap='BuGn'), use_container_width=True)
+original_head = df.head()
+st.dataframe(original_head.style.background_gradient(cmap='BuGn'), use_container_width=True)
 
 st.divider()
 
 st.markdown('## 🧹 Clean Data')
 df = df.dropna().reset_index(drop=True)
 st.info(f'📏 Data shape after cleaning: {df.shape}')
-st.dataframe(df.style.background_gradient(cmap='YlOrBr'), use_container_width=True)
+cleaned_head = df.head()
+st.dataframe(cleaned_head.style.background_gradient(cmap='YlOrBr'), use_container_width=True)
