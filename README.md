@@ -166,7 +166,11 @@ car-price-prediction/
 │   ├── 1_data_collection.ipynb
 │   ├── 2_data_cleaning.ipynb
 │   └── 3_model_training.ipynb
-│
+|
+├── docs/
+│   ├── screenshots
+│   ├── plots
+|
 ├── requirements.txt
 ├── runtime.txt
 ├── setup.sh
