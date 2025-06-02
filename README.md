@@ -99,3 +99,17 @@ The complete data and model pipeline follow this sequence:
 
 ---
 
+## 🧠 Streamlit Caching
+
+Caching ensures expensive functions like loading data or models do not rerun unnecessarily, improving app responsiveness and reducing resource consumption.  
+Especially useful for large datasets and pre-trained models.
+
+Example:
+```python
+@st.cache_data
+def load_data():
+    return pd.read_csv("datasets/car_dataset_cleaned.csv")
+
+@st.cache_resource
+def load_model():
+    return joblib.load("models/rf_model.joblib")
