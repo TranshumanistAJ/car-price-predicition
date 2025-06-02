@@ -31,3 +31,29 @@ This Car Price Prediction App allows users to:
 The target variable is **`selling_price`**, and the model is trained on cleaned and preprocessed data derived from an original used car dataset.
 
 ---
+
+## 🔄 Workflow
+
+The complete data and model pipeline follow this sequence:
+
+1. **Data Collection**  
+   - Raw data is loaded from CSV files located in the `datasets/` directory.
+
+2. **Data Cleaning & Feature Engineering**  
+   - Done in Jupyter notebooks located in `jupyter_notebooks/`.
+   - Includes handling missing values, converting categorical variables, and feature extraction.
+
+3. **Exploratory Data Analysis (EDA)**  
+   - Includes distribution analysis, correlation matrix, and boxplots to detect outliers.
+
+4. **Hypothesis Testing**  
+   - Users interactively test how specific features (e.g., year, fuel type) influence price.
+
+5. **Model Training**  
+   - `RandomForestRegressor` from scikit-learn is used for training.
+   - Trained on processed features with optimal hyperparameters.
+
+6. **Deployment**  
+   - Final model is integrated into Streamlit using a multi-page architecture.
+
+---
