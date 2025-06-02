@@ -57,24 +57,42 @@ The complete data and model pipeline follow this sequence:
 
 ---
 
-## ⚙️ Pages of Streamlit 
+## ⚙️ Pages of Streamlit
 
 ### 1. Summary Page
-- Displays dataset structure, null values, data types, and statistical summary.
-
-### 2. Correlation Page
-- Heatmap and visual inspection of correlations among numeric variables.
-- Helps identify multicollinearity and influential predictors.
-
-### 3. Hypothesis Testing Page
-- Select any categorical or continuous feature to analyze its distribution versus the target.
-- Uses violin plots, bar plots, and strip plots.
-
-### 4. Prediction Page
-- Accepts user input for relevant features.
-- Displays predicted price using a pre-trained model.
+- **Purpose:** Gives a high-level overview of the dataset.
+- **Details:** Displays the structure of the dataset including column names, data types, null values, and a statistical summary (mean, median, standard deviation, etc.).
+- **Screenshot:**
+  
+  ![Summary Page](docs/screenshots/summary.png)
 
 ---
+
+### 2. Correlation Page
+- **Purpose:** Helps understand relationships between numerical features.
+- **Details:** Shows a correlation heatmap to identify multicollinearity or strongly related predictors.
+- **Screenshot:**
+  
+  ![Correlation Page](docs/screenshots/correlation.png)
+
+---
+
+### 3. Hypothesis Testing Page
+- **Purpose:** Analyze how selected features relate to the target variable.
+- **Details:** Lets users select categorical or continuous variables to compare against the target using violin plots, bar charts, and strip plots.
+- **Screenshot:**
+  
+  ![Hypothesis Testing Page](docs/screenshots/hypothesis.png)
+
+---
+
+### 4. Prediction Page
+- **Purpose:** Predict car prices based on user input.
+- **Details:** Takes input values for key features, runs them through a pre-trained model, and returns the predicted price.
+- **Screenshot:**
+  
+  ![Prediction Page](docs/screenshots/prediction.png)
+
 
 
 ## 📊 Model and Preprocessing
