@@ -1,8 +1,8 @@
 # Car Price Prediction App
 
-**Live Demo**: [https://car-price-predicition.onrender.com](https://car-price-predicition.onrender.com)
+**Live Demo**: [Car Price Prediction](https://car-price-predicition.onrender.com)
 
-This project is a web-based application developed using **Streamlit** that predicts the price of used cars based on several features. It includes data preprocessing, exploratory data analysis, feature selection, hypothesis testing, and model deployment. The app is modularized into multiple pages for better usability and analysis workflow.
+ [Car Price Prediction](https://car-price-predicition.onrender.com) is a web-based application developed using **Streamlit** that predicts the price of used cars based on several features. It includes data preprocessing, exploratory data analysis, feature selection, hypothesis testing, and model deployment. The app is modularized into multiple pages for better usability and analysis workflow.
 
 ---
 
