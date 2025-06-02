@@ -8,7 +8,7 @@
 
 - [Project Overview](#project-overview)
 - [Workflow](#workflow)
-- [Features](#features)
+- [Pages of Streamlit ](#Pages-of-Streamlit )
 - [Technologies Used](#technologies-used)
 - [Model and Preprocessing](#model-and-preprocessing)
 - [Streamlit Caching](#streamlit-caching)
@@ -55,5 +55,24 @@ The complete data and model pipeline follow this sequence:
 
 6. **Deployment**  
    - Final model is integrated into Streamlit using a multi-page architecture.
+
+---
+
+## ⚙️ Pages of Streamlit 
+
+### 1. Summary Page
+- Displays dataset structure, null values, data types, and statistical summary.
+
+### 2. Correlation Page
+- Heatmap and visual inspection of correlations among numeric variables.
+- Helps identify multicollinearity and influential predictors.
+
+### 3. Hypothesis Testing Page
+- Select any categorical or continuous feature to analyze its distribution versus the target.
+- Uses violin plots, bar plots, and strip plots.
+
+### 4. Prediction Page
+- Accepts user input for relevant features.
+- Displays predicted price using a pre-trained model.
 
 ---
