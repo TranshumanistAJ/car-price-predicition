@@ -76,3 +76,26 @@ The complete data and model pipeline follow this sequence:
 - Displays predicted price using a pre-trained model.
 
 ---
+
+
+## 📊 Model and Preprocessing
+
+### 🎯 Target Variable
+- `selling_price` (continuous numerical value)
+
+### 🧠 Model Used
+- **Random Forest Regressor**
+  - Chosen for its robustness to outliers, ability to handle mixed data types, and high accuracy without heavy parameter tuning.
+
+### ⚙️ Preprocessing Steps
+- Encoding categorical variables (`OneHotEncoder`, `LabelEncoder`)
+- Scaling numerical variables (where required)
+- Handling null values and data type conversions
+- Saving the final processed dataset (`car_dataset_cleaned.csv`)
+
+### 🧾 Model Integration
+- Model is trained in a Jupyter notebook and saved using `joblib`.
+- Loaded in the prediction page using Streamlit's cache mechanism for performance.
+
+---
+
