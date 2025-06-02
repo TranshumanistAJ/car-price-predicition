@@ -12,7 +12,6 @@
 - [Technologies Used](#technologies-used)
 - [Model and Preprocessing](#model-and-preprocessing)
 - [Streamlit Caching](#streamlit-caching)
-- [Screenshots](#screenshots)
 - [How to Run Locally](#how-to-run-locally)
 - [Project Structure](#project-structure)
 - [Future Improvements](#future-improvements)
@@ -99,17 +98,48 @@ The complete data and model pipeline follow this sequence:
 
 ---
 
+
 ## 🧠 Streamlit Caching
 
-Caching ensures expensive functions like loading data or models do not rerun unnecessarily, improving app responsiveness and reducing resource consumption.  
-Especially useful for large datasets and pre-trained models.
-
-Example:
 ```python
-@st.cache_data
-def load_data():
-    return pd.read_csv("datasets/car_dataset_cleaned.csv")
-
 @st.cache_resource
-def load_model():
-    return joblib.load("models/rf_model.joblib")
+def get_pipeline(cat_cols):
+    preprocessor = ColumnTransformer([
+        ('cat', OneHotEncoder(handle_unknown='ignore'), cat_cols)
+    ], remainder='passthrough')
+
+    model = Pipeline([
+        ('preprocess', preprocessor),
+        ('regressor', RandomForestRegressor(random_state=42))
+    ])
+    return model
+````
+
+| Cache Type           | Purpose                       | Used For         |
+| -------------------- | ----------------------------- | ---------------- |
+| `@st.cache_data`     | Avoid re-reading CSVs         | `load_data()`    |
+| `@st.cache_resource` | Avoid re-building ML pipeline | `get_pipeline()` |
+
+---
+
+
+
+
+## 💻 How to Run Locally
+
+### 📦 Install Requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+### ▶️ Run Streamlit App
+
+```bash
+streamlit run app.py
+```
+
+✅ Ensure you are in the project directory before running the above command.
+
+---
+
