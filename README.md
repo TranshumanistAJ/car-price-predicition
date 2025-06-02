@@ -143,3 +143,33 @@ streamlit run app.py
 
 ---
 
+
+## 🗂️ Project Structure
+
+```bash
+car-price-prediction/
+│
+├── app.py                   # Main Streamlit app entry point
+├── multipage.py             # Handles multiple pages in Streamlit
+│
+├── app_pages/               # All app pages
+│   ├── summary.py
+│   ├── correlation.py
+│   ├── hypothesis.py
+│   └── prediction.py
+│
+├── datasets/
+│   ├── car_dataset.csv
+│   └── car_dataset_cleaned.csv
+│
+├── jupyter_notebooks/
+│   ├── 1_data_collection.ipynb
+│   ├── 2_data_cleaning.ipynb
+│   └── 3_model_training.ipynb
+│
+├── requirements.txt
+├── runtime.txt
+├── setup.sh
+├── README.md
+└── .gitignore
+```
