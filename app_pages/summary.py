@@ -1,13 +1,13 @@
-import streamlit as st
-import pandas as pd
+import streamlit as st  # Importing Streamlit for building the app interface
+import pandas as pd  # Importing pandas for data manipulation
 
-@st.cache_data
+@st.cache_data  # Cache the data to avoid reloading on every run
 def load_data(path='datasets/car_dataset.csv'):
-    df = pd.read_csv(path)
-    return df.dropna().reset_index(drop=True)
+    df = pd.read_csv(path)  # Read dataset from the given path
+    return df.dropna().reset_index(drop=True)  # Remove missing values and reset index
 
-def generate_column_summary(df):
-    column_info = {
+def generate_column_summary(df):  # Function to create a summary of dataset columns
+    column_info = {  # Dictionary mapping column names to their descriptions
         "name": "The full name of the car (brand and model).",
         "year": "Year of manufacture — newer cars typically cost more.",
         "selling_price": "Target variable — the car's resale value.",
@@ -22,20 +22,20 @@ def generate_column_summary(df):
         "seats": "Number of seats in the car."
     }
 
-    rows = []
-    for col in df.columns:
-        dtype = df[col].dtype
-        desc = column_info.get(col, "No description available.")
-        rows.append({
+    rows = []  # List to store summary rows
+    for col in df.columns:  # Loop over each column in the dataset
+        dtype = df[col].dtype  # Get the data type of the column
+        desc = column_info.get(col, "No description available.")  # Get description or default message
+        rows.append({  # Append column details as a dictionary
             "Column": col,
             "Data Type": str(dtype),
             "Description": desc
         })
 
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows)  # Convert the list of dictionaries to a DataFrame
 
 def app():
-    st.markdown('''
+    st.markdown('''  # Render a styled HTML block for the project introduction
     <div style="text-align: center; padding: 1rem 2rem; border-radius: 10px;">
         <h3>🔮 Project Overview</h3>
         <p style="font-size: 16px; line-height: 1.6;">
@@ -49,18 +49,18 @@ def app():
         </p>
     </div>
     ''', unsafe_allow_html=True)
-    df = load_data()
+    df = load_data()  # Load the dataset
     
-    st.success(f'✅ Dataset Loaded: {df.shape[0]} rows, {df.shape[1]} columns')
+    st.success(f'✅ Dataset Loaded: {df.shape[0]} rows, {df.shape[1]} columns')  # Show success message with dataset shape
 
-    st.dataframe(df.head().style.background_gradient(cmap='BuGn'), use_container_width=True)
+    st.dataframe(df.head().style.background_gradient(cmap='BuGn'), use_container_width=True)  # Show first few rows with styling
 
-    st.markdown("### 🧾 Data Types")
-    st.dataframe(df.dtypes.astype(str), use_container_width=True)
+    st.markdown("### 🧾 Data Types")  # Section title for data types
+    st.dataframe(df.dtypes.astype(str), use_container_width=True)  # Display data types of all columns
 
-    st.markdown("### 📐 Descriptive Stats")
-    st.dataframe(df.describe(), use_container_width=True)
+    st.markdown("### 📐 Descriptive Stats")  # Section title for descriptive statistics
+    st.dataframe(df.describe(), use_container_width=True)  # Show summary stats of numerical columns
 
-    st.markdown("### 🔎 Column-by-Column Guide")
-    col_summary_df = generate_column_summary(df)
-    st.dataframe(col_summary_df, use_container_width=True)
+    st.markdown("### 🔎 Column-by-Column Guide")  # Section title for column descriptions
+    col_summary_df = generate_column_summary(df)  # Generate column summary
+    st.dataframe(col_summary_df, use_container_width=True)  # Display the column summary table
