@@ -14,7 +14,6 @@
 - [Streamlit Caching](#streamlit-caching)
 - [How to Run Locally](#how-to-run-locally)
 - [Project Structure](#project-structure)
-- [Future Improvements](#future-improvements)
 
 ---
 
@@ -195,3 +194,23 @@ car-price-prediction/
 ├── README.md
 └── .gitignore
 ```
+## ** Credits**
+ 
+### **Code**
+
+- I have reused and adapted code from different sections of the course as well as the walk through projects.
+
+- Specific locations of the sources of the code are referred to in inline comments and doc strings in each notebook or python file.
+
+ 
+### **Content**
+
+- Emojis used in this project are sourced from [Emojipedia](https://emojipedia.org/). All rights belong to their respective creators.
+
+
+- Dataset taken from [Kaggle](https://www.kaggle.com/datasets/sukhmandeepsinghbrar/car-price-prediction-dataset).
+
+
+### **Acknowledgements**
+
+* I would like to thank my mentor, Mo Shami, for his kind support and inspiring comments.

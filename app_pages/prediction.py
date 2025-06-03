@@ -11,7 +11,7 @@ import plotly.express as px
 
 @st.cache_data
 def load_data(path='datasets/car_dataset.csv'):
-    df = pd.read_csv(path)
+    df = pd.read_csv(path) # dataset is taken grom kaggle
     return df.dropna().reset_index(drop=True)
 
 @st.cache_resource
