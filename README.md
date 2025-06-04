@@ -5,15 +5,15 @@
 ---
 ## 📌 Table of Contents
 
-- [Project Overview](#project-overview)
-- [Workflow](#workflow)
-- [Pages of Streamlit](#pages-of-streamlit)
-- [Technologies Used](#technologies-used)
-- [Model and Preprocessing](#model-and-preprocessing)
-- [Streamlit Caching](#streamlit-caching)
-- [How to Run Locally](#how-to-run-locally)
-- [Project Structure](#project-structure)
-- [Credits](#credits)
+- [Project Overview](#-project-overview)
+- [Workflow](#-workflow)
+- [Pages of Streamlit](#-pages-of-streamlit)
+- [Technologies Used](#-technologies-used)
+- [Model and Preprocessing](#-model-and-preprocessing)
+- [Streamlit Caching](#-streamlit-caching)
+- [How to Run Locally](#-how-to-run-locally)
+- [Project Structure](#-project-structure)
+- [Credits](#-credits)
 
 ---
 
